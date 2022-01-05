@@ -1,0 +1,107 @@
+﻿@page "/company"
+
+@*<h1>Counter</h1>
+
+    <p>Current count: @currentCount</p>
+
+    <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>*@
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card mt-3 mb-3">
+            <div class="card-header">
+                <h2>Company</h2>
+            </div>
+            <div class="card-body">
+                @*                @if (iscompanySuccess)
+                    {
+                        <div class="alert alert-success" role="alert">company successful</div>
+                    }*@
+
+                <EditForm OnValidSubmit="registerCompany">
+                    <DataAnnotationsValidator />
+                    @*<CustomFormValidator @ref="customFormValidator" />*@
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">First Name</label>
+                        <div class="col">
+                            <InputText class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Last Name</label>
+                        <div class="col">
+                            <InputText class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Email</label>
+                        <div class="col">
+                            <InputText class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">User Name</label>
+                        <div class="col">
+                            <InputText class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Password</label>
+                        <div class="col">
+                            <InputText type="password" class="form-control"></InputText>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Confirm Password</label>
+                        <div class="col">
+                            <InputText type="password" class="form-control"></InputText>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12">Gender</label>
+                        <div class="col">
+                            <InputSelect class="form-control" @bind-Value=@randomText>
+                                <option value="-- Select City --">-- Select Gender --</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div class="form-group" align="right">
+                        <button type="submit" class="btn btn-success">Register</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+   @* public Company company = new Company();*@
+    bool createCompany = false;
+    private string cName = "";
+    private string randomText = "";
+    private DateTime createdDate = DateTime.Today;
+
+    public void HandleOnValidSubmit()
+    {
+
+    }
+
+    public void registerCompany()
+    {
+        System.Console.WriteLine("hi");
+        @*company.CompanyName = cName;
+        company.CreatedDate = createdDate;
+        createCompany = CompanyController.create(company);*@
+    }
+}
